@@ -1,13 +1,19 @@
 import React, { useState } from 'react';
 // Import CSS Dashboard (Pastikan file ini sudah dibuat di folder src/pages/)
-import './pages/Navbar/dashboard.css'; 
+import './pages/Mengisiabsensi/dashboard.css'; 
 
 import LoginForm from './pages/LoginPage/LoginPage.jsx'; 
-import Navbar from './pages/Navbar/Navbar.jsx';
+import Mengisiabsensi from './pages/Mengisiabsensi/Navbar.jsx';
 
 // ... sisa kode App.js ...
 import RegisterForm from './pages/RegisterPage/RegisterPage.jsx';
 import LupapasswordForm from './pages/ForgotPasswordPage/LupaPasswordPage.jsx';
+
+
+// Konstanta untuk tampilan
+const VIEW_LOGIN = 'login';
+const VIEW_REGISTER = 'register';
+const VIEW_FORGOT_PASSWORD = 'forgot_password'; 
 
 
 function App() {
@@ -20,7 +26,7 @@ function App() {
     <div className="App">
       {view === 'dashboard' ? (
         <div className="dashboard-layout">
-          <Navbar onLogout={handleLogout} />
+          <Mengisiabsensi onLogout={handleLogout} />
           <div className="dashboard-content">
             <h1>Assalamualaikum!</h1>
             <p>Selamat datang di sistem Absensi Mengaji.</p>
