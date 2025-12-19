@@ -10,6 +10,7 @@ import LupapasswordForm from './pages/ForgotPasswordPage/LupaPasswordPage.jsx';
 const VIEW_LOGIN = 'login';
 const VIEW_REGISTER = 'register';
 const VIEW_FORGOT_PASSWORD = 'forgot_password'; 
+const VIEW_MENGISI_ABSENSI = 'mengisi_absensi';
 
 function App() {
   const [viewStack, setViewStack] = useState([VIEW_LOGIN]);
