@@ -6,7 +6,7 @@ const Logoutbutton = ({ onLogout }) => {
       onClick={onLogout}
       style={{
         marginTop: 'auto',
-        background: '#ff4d4d',
+        background: '#10833eff',
         color: 'white',
         border: 'none',
         padding: '10px 20px',
