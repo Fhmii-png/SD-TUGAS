@@ -1,7 +1,11 @@
-// src/App.js
-
 import React, { useState } from 'react';
-import LoginForm from './pages/LoginPage/LoginPage.jsx';
+// Import CSS Dashboard (Pastikan file ini sudah dibuat di folder src/pages/)
+import './pages/Navbar/dashboard.css'; 
+
+import LoginForm from './pages/LoginPage/LoginPage.jsx'; 
+import Navbar from './pages/Navbar/Navbar.jsx';
+
+// ... sisa kode App.js ...
 import RegisterForm from './pages/RegisterPage/RegisterPage.jsx';
 import LupapasswordForm from './pages/ForgotPasswordPage/LupaPasswordPage.jsx';
 
@@ -10,56 +14,37 @@ import LupapasswordForm from './pages/ForgotPasswordPage/LupaPasswordPage.jsx';
 const VIEW_LOGIN = 'login';
 const VIEW_REGISTER = 'register';
 const VIEW_FORGOT_PASSWORD = 'forgot_password'; 
-const VIEW_MENGISI_ABSENSI = 'mengisi_absensi';
+
 
 function App() {
-  const [viewStack, setViewStack] = useState([VIEW_LOGIN]);
+  const [view, setView] = useState('login');
 
-  const pushView = (newView) => {
-    setViewStack(prevStack => [...prevStack, newView]);
-  };
-
-  const popView = () => {
-    if (viewStack.length > 1) {
-      setViewStack(prevStack => prevStack.slice(0, prevStack.length - 1));
-    }
-  };
-
-  const currentView = viewStack[viewStack.length - 1];
-
-  // Fungsi Aksi
-  const switchToRegister = () => { pushView(VIEW_REGISTER); };
-  const switchToForgotPassword = () => { pushView(VIEW_FORGOT_PASSWORD); }; 
-  const switchToLogin = () => { popView(); }; 
-
-  let activeComponent = null;
-git
-
-  switch (currentView) {
-    case VIEW_LOGIN:
-      activeComponent = (
-        <LoginForm 
-            onSwitchToRegister={switchToRegister} 
-            onSwitchToForgotPassword={switchToForgotPassword}
-        />
-      );
-      break;
-    case VIEW_REGISTER:
-      activeComponent = <RegisterForm onSwitchToLogin={switchToLogin} />;
-      break;
-    case VIEW_FORGOT_PASSWORD:
-      // PENTING: Gunakan NAMA KOMPONEN YANG DI-IMPORT (LupapasswordForm)
-      activeComponent = <LupapasswordForm onSwitchToLogin={switchToLogin} />; // <-- Penggunaan yang BENAR
-      break;
-    default:
-      activeComponent = <LoginForm onSwitchToRegister={switchToRegister} onSwitchToForgotPassword={switchToForgotPassword} />;
-  }
+  const handleLoginSuccess = () => setView('dashboard');
+  const handleLogout = () => setView('login');
 
   return (
     <div className="App">
-      <div key={currentView} className="view-transition-container"> 
-        {activeComponent}
-      </div>
+      {view === 'dashboard' ? (
+        <div className="dashboard-layout">
+          <Navbar onLogout={handleLogout} />
+          <div className="dashboard-content">
+            <h1>Assalamualaikum!</h1>
+            <p>Selamat datang di sistem Absensi Mengaji.</p>
+          </div>
+        </div>
+      ) : (
+        <div className="auth-container">
+          {view === 'login' && (
+            <LoginForm 
+              onLoginSuccess={handleLoginSuccess}
+              onSwitchToRegister={() => setView('register')}
+              onSwitchToForgotPassword={() => setView('forgot_password')}
+            />
+          )}
+          {view === 'register' && <RegisterForm onSwitchToLogin={() => setView('login')} />}
+          {view === 'forgot_password' && <LupapasswordForm onSwitchToLogin={() => setView('login')} />}
+        </div>
+      )}
     </div>
   );
 }

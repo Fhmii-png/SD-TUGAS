@@ -8,9 +8,8 @@ import {
 import logo from '../../componnets/assest/logo.png';
 import './Login.css'; 
 
-// Menerima prop onSwitchToRegister DAN onSwitchToForgotPassword
-export default function LoginForm({ onSwitchToRegister, onSwitchToForgotPassword }) { 
-  // ... (State & Logika Lainnya sama seperti sebelumnya) ...
+// TAMBAHKAN onLoginSuccess di dalam destructured props
+export default function LoginForm({ onSwitchToRegister, onSwitchToForgotPassword, onLoginSuccess }) { 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [rememberMe, setRememberMe] = useState(false);
@@ -31,16 +30,23 @@ export default function LoginForm({ onSwitchToRegister, onSwitchToForgotPassword
 
     setIsLoading(true);
 
+    // Simulasi Proses Login
     setTimeout(() => {
       if (validUsers[username] !== password) {
         setError('Username atau Password salah!');
+        setIsLoading(false);
       } else {
         console.log('Login Berhasil:', { username, rememberMe });
-        alert(`Login berhasil! Assalamualaikum, ${username}!`);
+        
+        // --- BAGIAN PENTING: PANGGIL ONLOGINSUCCESS ---
+        if (onLoginSuccess) {
+          onLoginSuccess(); // Ini akan memerintahkan App.js menampilkan Navbar/Dashboard
+        }
+        
         setUsername('');
         setPassword('');
+        setIsLoading(false);
       }
-      setIsLoading(false);
     }, 1000);
   };
 
@@ -52,7 +58,6 @@ export default function LoginForm({ onSwitchToRegister, onSwitchToForgotPassword
     <div className="login-container">
       <div className="form-card">
         
-        {/* ... (Header dan Judul) ... */}
         <div className="icon-container">
           <div className="icon-box">
             <img src={logo} alt="Logo" className="icon-box-image" />
@@ -121,7 +126,6 @@ export default function LoginForm({ onSwitchToRegister, onSwitchToForgotPassword
             </div>
           </div>
           
-          {/* Ingat Saya & Lupa Password (Tombol Lupa Password) */}
           <div className="form-options">
             <label className="remember-me-label" htmlFor="remember-me-checkbox">
               <input
@@ -134,18 +138,16 @@ export default function LoginForm({ onSwitchToRegister, onSwitchToForgotPassword
               />
               <span>Ingat saya</span>
             </label>
-            {/* PENTING: Menghubungkan ke Form Lupa Password */}
             <button 
                 type="button" 
                 className="forgot-password-btn" 
                 disabled={isLoading}
-                onClick={onSwitchToForgotPassword} // <-- PUSH VIEW_FORGOT_PASSWORD
+                onClick={onSwitchToForgotPassword}
             >
               Lupa Password ?
             </button>
           </div>
 
-          {/* Tombol Masuk & Daftar Akun Baru */}
           <button type="submit" disabled={isLoading} className={`main-btn ${isLoading ? 'loading' : ''}`}>
             {isLoading ? (
               <>
@@ -177,5 +179,7 @@ export default function LoginForm({ onSwitchToRegister, onSwitchToForgotPassword
         </form>
       </div>
     </div>
+    
   );
+  
 }
