@@ -1,14 +1,18 @@
 .absensi-box {
-  background: linear-gradient(#E4E2E1,#DDDCDB,#D5D5D5) ;
-  width: 90%;
+  background: linear-gradient(#E4E2E1,#DDDCDB,#D5D5D5);
+
+  width: calc(100% - 334px);
   max-width: 900px;
 
-  margin: 40px auto; /* INI YANG BIKIN KE TENGAH */
+  margin: 40px auto;
+  margin-left: 334px; /* geser dari sidebar */
+  margin-top: 120px;
   padding: 0px;
-
+  
   border-radius: 14px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
+
 
 .absensi-table {
   border-radius: 14px;

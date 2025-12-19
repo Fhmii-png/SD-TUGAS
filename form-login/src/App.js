@@ -1,48 +1,65 @@
-import React, { useState } from 'react';
-// Import CSS Dashboard (Pastikan file ini sudah dibuat di folder src/pages/)
-import './pages/Mengisiabsensi/dashboard.css'; 
+import React, { useState } from "react";
+import "./pages/Mengisiabsensi/dashboard.css";
 
-import LoginForm from './pages/LoginPage/LoginPage.jsx'; 
-import Mengisiabsensi from './pages/Mengisiabsensi/Navbar.jsx';
+import LoginForm from "./pages/LoginPage/LoginPage.jsx";
+import RegisterForm from "./pages/RegisterPage/RegisterPage.jsx";
+import LupapasswordForm from "./pages/ForgotPasswordPage/LupaPasswordPage.jsx";
 
-// ... sisa kode App.js ...
-import RegisterForm from './pages/RegisterPage/RegisterPage.jsx';
-import LupapasswordForm from './pages/ForgotPasswordPage/LupaPasswordPage.jsx';
+import Navbar from "./pages/Mengisiabsensi/Navbar.jsx";
+import Dashboard from "./pages/Mengisiabsensi/Dashboard.jsx";
+// import RekapAbsensi from "./pages/Mengisiabsensi/RekapAbsensi.jsx";
+// import DataMurid from "./pages/Mengisiabsensi/DataMurid.jsx";
 
-
-// Konstanta untuk tampilan
-const VIEW_LOGIN = 'login';
-const VIEW_REGISTER = 'register';
-const VIEW_FORGOT_PASSWORD = 'forgot_password'; 
-
+// konstanta view auth
+const VIEW_LOGIN = "login";
+const VIEW_REGISTER = "register";
+const VIEW_FORGOT_PASSWORD = "forgot_password";
 
 function App() {
-  const [view, setView] = useState('login');
+  const [view, setView] = useState(VIEW_LOGIN);
 
-  const handleLoginSuccess = () => setView('dashboard');
-  const handleLogout = () => setView('login');
+  // ⬇️ STATE UNTUK PINDAH HALAMAN DASHBOARD
+  const [dashboardPage, setDashboardPage] = useState("mengisi");
+
+  const handleLoginSuccess = () => setView("dashboard");
+  const handleLogout = () => setView(VIEW_LOGIN);
 
   return (
     <div className="App">
-      {view === 'dashboard' ? (
+      {view === "dashboard" ? (
         <div className="dashboard-layout">
-          <Mengisiabsensi onLogout={handleLogout} />
+          {/* NAVBAR */}
+          <Navbar
+            onLogout={handleLogout}
+            setDashboardPage={setDashboardPage}
+          />
+
+          {/* CONTENT */}
           <div className="dashboard-content">
-            <h1>Assalamualaikum!</h1>
-            <p>Selamat datang di sistem Absensi Mengaji.</p>
+            {dashboardPage === "mengisi" && <Dashboard />}
+            {/* {dashboardPage === "rekap" && <RekapAbsensi />}
+            {dashboardPage === "murid" && <DataMurid />} */}
           </div>
         </div>
       ) : (
         <div className="auth-container">
-          {view === 'login' && (
-            <LoginForm 
+          {view === VIEW_LOGIN && (
+            <LoginForm
               onLoginSuccess={handleLoginSuccess}
-              onSwitchToRegister={() => setView('register')}
-              onSwitchToForgotPassword={() => setView('forgot_password')}
+              onSwitchToRegister={() => setView(VIEW_REGISTER)}
+              onSwitchToForgotPassword={() =>
+                setView(VIEW_FORGOT_PASSWORD)
+              }
             />
           )}
-          {view === 'register' && <RegisterForm onSwitchToLogin={() => setView('login')} />}
-          {view === 'forgot_password' && <LupapasswordForm onSwitchToLogin={() => setView('login')} />}
+
+          {view === VIEW_REGISTER && (
+            <RegisterForm onSwitchToLogin={() => setView(VIEW_LOGIN)} />
+          )}
+
+          {view === VIEW_FORGOT_PASSWORD && (
+            <LupapasswordForm onSwitchToLogin={() => setView(VIEW_LOGIN)} />
+          )}
         </div>
       )}
     </div>

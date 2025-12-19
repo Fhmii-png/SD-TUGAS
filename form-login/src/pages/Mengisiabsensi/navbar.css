@@ -1,36 +1,73 @@
-/* src/pages/Navbar/navbar.css */
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Doodle+Shadow&display=swap');
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+}
+
 .sidebar {
-  width: 250px;
-  background-color: #2c3e50;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  padding: 20px;
+  width: 334px;
   height: 100vh;
-  position: sticky; /* Agar sidebar tetap di tempat saat scroll konten */
+  background: linear-gradient(#E8C79D,#D5AA7E,#B98763);
+  color: white;
+  padding-top: 15px;
+  position: fixed;
   top: 0;
-}
-
-.sidebar-header {
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-.menu-links {
+  left: 0;
   display: flex;
   flex-direction: column;
-  gap: 15px;
-  flex-grow: 1;
+  align-items: center;
+  border-right: 1px solid #937454;
 }
 
-.menu-links a {
-  color: #ecf0f1;
+.sidebar p {
+  font-family: "Rubik Doodle Shadow", system-ui;
+  color: #52381E;
+  font-size: 24px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.sidebar button{
+  background-color: transparent;
+  display: block;
+  color: #52381E;
+  font-style: italic;
+  font-weight: bold;
+  padding: 12px 20px;
   text-decoration: none;
-  padding: 10px;
-  border-radius: 5px;
-  transition: 0.3s;
+  border: 2px solid #937454;
+  border-radius: 19px;
+  margin: 10px;
+  font-size: 20px;
+  width: 220px;
+  text-align: center;
 }
 
-.menu-links a:hover {
-  background-color: #34495e;
+.logout1 button{
+  background-color: transparent;
+  color: #52381E;
+  font-size: 20px;
+  font-family: 'arial', sans-serif;
+  font-style: italic;
+  font-weight: bold;
+  padding: 12px 24px;
+
+ 
+  border-radius: 12px;
+  cursor: pointer;
+
+  margin-top: 200px;      /* ⬅️ DORONG KE BAWAH */
+  margin-bottom: 20px;
+  align-self: center;    /* atau flex-start / flex-end */
+}
+
+.logout1 button:hover{
+    background-color: #937453a7;
+  padding-left: 25px;
+}
+
+.sidebar button:hover {
+  background-color: #937453a7;
+  padding-left: 25px;
 }

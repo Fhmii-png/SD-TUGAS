@@ -1,22 +1,12 @@
 import React from 'react';
+import './button.css';
 
 const Logoutbutton = ({ onLogout }) => {
   return (
-    <button 
+    <button className="logout"
       onClick={onLogout}
-      style={{
-        marginTop: 'auto',
-        background: '#d6a5a5ff',
-        color: 'white',
-        border: 'none',
-        padding: '10px 20px',
-        borderRadius: '5px',
-        cursor: 'pointer',
-        fontWeight: 'bold',
-        width: '100%'
-      }}
     >
-      Keluar
+      Logout
     </button>
   );
 };
