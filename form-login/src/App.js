@@ -32,6 +32,7 @@ function App() {
   const switchToLogin = () => { popView(); }; 
 
   let activeComponent = null;
+git
 
   switch (currentView) {
     case VIEW_LOGIN:
