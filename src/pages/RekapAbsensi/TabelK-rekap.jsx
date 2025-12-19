@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./tabelK.css";
+import "./tabelK-rekap.css";
 
 function TabelK() {
   const [data, setData] = useState([

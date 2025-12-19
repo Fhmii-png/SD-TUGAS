@@ -1,7 +1,7 @@
 import React from "react";
-import "./navbar.css";
+import "./navbar-rekap.css";
 import logo from "../../componnets/assest/logo.png";
-import Logoutbutton from "./Logoutbutton";
+import Logoutbutton from "./Logoutbutton-rekap";
 
 function Navbar({ onLogout, setDashboardPage }) {
   return (

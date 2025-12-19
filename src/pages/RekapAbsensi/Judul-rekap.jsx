@@ -1,4 +1,4 @@
-import "./judul.css";
+import "./judul-rekap.css";
 
 function Judul() {
   const today = new Date().toLocaleDateString("id-ID", {

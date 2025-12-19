@@ -27,7 +27,7 @@ function App() {
   return (
     <div className="App">
       {view === "dashboard" ? (
-        <div className="dashboard-layout">
+        <div className="dashboard-layout1">
           {/* NAVBAR */}
           <Navbar
             onLogout={handleLogout}
@@ -35,7 +35,7 @@ function App() {
           />
 
           {/* CONTENT */}
-          <div className="dashboard-content">
+          <div className="dashboard-content1">
             {dashboardPage === "mengisi" && <Dashboard />}
             {dashboardPage === "rekap" && <RekapAbsensi />}
         

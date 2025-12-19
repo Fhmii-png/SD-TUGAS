@@ -1,4 +1,4 @@
-import "./button.css";
+import "./button-rekap.css";
 
 function Submitbutton () {
     function tombolsubmit () {

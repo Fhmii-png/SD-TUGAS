@@ -1,31 +1,29 @@
 import React from "react";
 import "./navbar.css";
+import "./buttonmenu.css";
 import logo from "../../componnets/assest/logo.png";
 import Logoutbutton from "./Logoutbutton";
 
 function Navbar({ onLogout, setDashboardPage }) {
   return (
-    <div className="sidebar">
+    <div className="sidebar1">
       <img src={logo} alt="logo" width={100} />
       <p>
         Absensi <br /> Mengaji
       </p>
 
-      <button onClick={() => setDashboardPage("mengisi")}>
+      <button className='menubutton' onClick={() => setDashboardPage("mengisi")}>
         Mengisi Absensi
       </button>
 
-      <button onClick={() => setDashboardPage("rekap")}>
+      <button className='menubutton' onClick={() => setDashboardPage("rekap")}>
         Rekap Absensi
       </button>
 
-      <button onClick={() => setDashboardPage("murid")}>
+      <button className='menubutton' onClick={() => setDashboardPage("murid")}>
         Cek Data Murid
       </button>
-<div className="logout1">
-  
       <Logoutbutton onLogout={onLogout} />
-</div>
     </div>
 
   );

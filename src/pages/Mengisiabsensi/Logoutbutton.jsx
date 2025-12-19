@@ -3,9 +3,7 @@ import './button.css';
 
 const Logoutbutton = ({ onLogout }) => {
   return (
-    <button className="logout"
-      onClick={onLogout}
-    >
+    <button className='logout1' onClick={onLogout}>
       Logout
     </button>
   );

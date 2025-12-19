@@ -6,7 +6,7 @@ function Submitbutton () {
     }
     return (
         <div>
-            <button class = "simpan" type = "submit" onClick = {tombolsubmit}>
+            <button class = "simpan1" type = "submit" onClick = {tombolsubmit}>
                 Simpan Absensi</button>
         </div>
     );

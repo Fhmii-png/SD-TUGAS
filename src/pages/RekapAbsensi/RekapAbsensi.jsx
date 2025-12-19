@@ -1,8 +1,8 @@
-import "./dashboard.css";
-import Navbar from "./Navbar";
-import Logoutbutton from "./Logoutbutton";
-import Judul from "./Judul";
-import TabelK from "./TabelK";
+import "./dashboard-rekap.css";
+import Navbar from "./Navbar-rekap";
+import Logoutbutton from "./Logoutbutton-rekap";
+import Judul from "./Judul-rekap";
+import TabelK from "./TabelK-rekap";
 
 
 function RekapAbsensi() {

@@ -16,8 +16,8 @@ function TabelK() {
   };
 
   return (
-    <div className="absensi-box">
-      <table className="absensi-table">
+    <div className="absensi-box1">
+      <table className="absensi-table1">
         <thead>
           <tr>
             <th>No</th>

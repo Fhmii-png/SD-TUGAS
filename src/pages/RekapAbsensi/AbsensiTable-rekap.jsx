@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./AbsensiTable.css";
+import "./AbsensiTable-rekap.css";
 
 function AbsensiTable() {
   const [rows, setRows] = useState([
