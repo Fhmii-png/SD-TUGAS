@@ -7,7 +7,7 @@ import LupapasswordForm from "./pages/ForgotPasswordPage/LupaPasswordPage.jsx";
 
 import Navbar from "./pages/Mengisiabsensi/Navbar.jsx";
 import Dashboard from "./pages/Mengisiabsensi/Dashboard.jsx";
-// import RekapAbsensi from "./pages/Mengisiabsensi/RekapAbsensi.jsx";
+import RekapAbsensi from "./pages/RekapAbsensi/RekapAbsensi.jsx";
 // import DataMurid from "./pages/Mengisiabsensi/DataMurid.jsx";
 
 // konstanta view auth
@@ -37,8 +37,8 @@ function App() {
           {/* CONTENT */}
           <div className="dashboard-content">
             {dashboardPage === "mengisi" && <Dashboard />}
-            {/* {dashboardPage === "rekap" && <RekapAbsensi />}
-            {dashboardPage === "murid" && <DataMurid />} */}
+            {dashboardPage === "rekap" && <RekapAbsensi />}
+        
           </div>
         </div>
       ) : (

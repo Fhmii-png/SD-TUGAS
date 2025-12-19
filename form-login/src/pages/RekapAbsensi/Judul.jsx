@@ -10,7 +10,7 @@ function Judul() {
 
   return (
     <div className="judul">
-      <h2>Mengisi Absensi</h2>
+      <h2>Hasil Rekap Absensi</h2>
       <span>{today}</span>
     </div>
   );

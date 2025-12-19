@@ -24,28 +24,28 @@
   padding-right: 25px; 
 }
 
-.logout{
-    background-color: transparent ;
-    color: #52381E;
-    font-size: 20px;
-    font-family: 'arial',sans-serif;
-    font-style: italic;
-    font-weight: bold;
-    padding: 12px 30px;
-    border: 2px solid;
-    border-color: #937454;
-    border-radius: 12px;
-    cursor: pointer;
-    text-decoration: none;
-    margin-top: 220px;   /* ⬅️ DORONG KE BAWAH */
-    margin-bottom: 20px;
-    align-self: flex-end; /* ⬅️ KE KANAN */
-    margin-right: 20px;
-  
+.logout {
+  background-color: transparent;
+  color: #c9bbad;
+  font-size: 20px;
+  font-family: 'arial', sans-serif;
+  font-style: italic;
+  font-weight: bold;
+  padding: 12px 300px;
+
+  border: 2px solid #937454;
+  border-radius: 12px;
+  cursor: pointer;
+
+  margin-top: auto;      /* ⬅️ DORONG KE BAWAH */
+  margin-bottom: 20px;
+  align-self: center;    /* atau flex-start / flex-end */
 }
+
 
 .logout:hover{
 background-color: #937453a7;
 border-color: #937454; 
 padding-right: 25px;
+margin-bottom: 50px;
 }
