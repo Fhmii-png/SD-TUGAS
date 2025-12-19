@@ -1,57 +1,36 @@
-/* src/navbar.css */
-@import url('https://fonts.googleapis.com/css2?family=Rubik+Doodle+Shadow&display=swap');
-
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-
-}
-
+/* src/pages/Navbar/navbar.css */
 .sidebar {
-  width: 334px;
-  height: 100vh;
-  background: linear-gradient(#E8C79D,#D5AA7E,#B98763);
-  color: rgb(255, 255, 255);
-  padding-top: 15px;
-  position: fixed;
-  top: 0;
-  left: 0;
+  width: 250px;
+  background-color: #2c3e50;
+  color: white;
   display: flex;
   flex-direction: column;
-  flex-shrink: 0 ;
-  align-items: center;
-  border-right: 1px solid #937454;
+  padding: 20px;
+  height: 100vh;
+  position: sticky; /* Agar sidebar tetap di tempat saat scroll konten */
+  top: 0;
 }
 
-.sidebar p {
-  font-family: "Rubik Doodle Shadow",system-ui; 
-  color:#52381E;
-  font-size: 24px;
-  margin-top:2px ;
-}
-
-.sidebar a {
-  display: block;
-  color: #52381E;
-  font-family: 'arial',sans-serif;
-  font-style: italic;
-  font-weight: bold;
-  padding: 12px 20px;
-  text-decoration: none;
-  border: 2px solid ; /* Border transparan untuk default */
-  border-radius: 19px; /* Membuat sudut melengkung */
-  border-color: #937454;
-  border-bottom-width: 3px;
-  margin: 5px;
-  font-size: 20px;
-  width: 200px;
+.sidebar-header {
   text-align: center;
+  margin-bottom: 30px;
 }
 
-.sidebar a:hover {
-  background-color: #937453a7; /* Background saat hover */
-  border-color: #937454; /* Menambahkan border putih saat hover */
-  padding-left: 25px; /* Memberikan efek geser ke kiri saat hover */
+.menu-links {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  flex-grow: 1;
 }
 
+.menu-links a {
+  color: #ecf0f1;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 5px;
+  transition: 0.3s;
+}
 
+.menu-links a:hover {
+  background-color: #34495e;
+}

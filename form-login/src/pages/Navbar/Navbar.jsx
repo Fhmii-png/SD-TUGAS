@@ -1,22 +1,21 @@
 import React from "react";
 import "./navbar.css";
-import logo from "./logo.png";
-import Logoutbutton from "./Logoutbutton";
+// Jalur logo disesuaikan dengan folder assets Anda
+import logo from "../../componnets/assest/logo.png"; 
 
-function Navbar() {
+// GUNAKAN HURUF KECIL 'l' agar sesuai dengan nama file fisik Anda
+import Logoutbutton from './logoutbutton.jsx'; 
+
+function Navbar({ onLogout }) {
   return (
     <div className="sidebar">
-      <img src={logo} alt="logo" width={106} height={90.36} />
-
-      <p>Absensi <br /> Mengaji</p>
-
-      <a href="#">Mengisi Absensi</a>
-      <a href="#">Rekap Absensi</a>
-      <a href="#">Cek Data Murid</a>
-
-      <Logoutbutton />
+      <div className="sidebar-header">
+        <img src={logo} alt="logo" width={100} /> {/* Pastikan logo digunakan agar warning hilang */}
+        <p>Absensi <br /> Mengaji</p>
+      </div>
+      {/* ... links lainnya ... */}
+      <Logoutbutton onLogout={onLogout} />
     </div>
   );
 }
-
 export default Navbar;
