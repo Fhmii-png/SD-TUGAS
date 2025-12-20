@@ -4,7 +4,10 @@
   border-radius: 14px;
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
   max-width: 900px;
-  margin: 0;
+  margin: -20px;
+  max-height: auto;
+  margin-top: 2px;
+  margin-left: 10px;
 }
 
 .filter-title {
@@ -52,6 +55,9 @@
   display: flex;
   align-items: center;
   gap: 30px;
+  margin-top: -40px;
+  margin-left: 33px;
+  
 }
 
 .filter-button:hover {

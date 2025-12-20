@@ -8,7 +8,8 @@ import LupapasswordForm from "./pages/ForgotPasswordPage/LupaPasswordPage.jsx";
 import Navbar from "./pages/Mengisiabsensi/Navbar.jsx";
 import Dashboard from "./pages/Mengisiabsensi/Dashboard.jsx";
 import RekapAbsensi from "./pages/RekapAbsensi/RekapAbsensi.jsx";
-// import FilterAbsensi from "./pages/Filterabsensi/FilterAbsensi.jsx";
+import Rekap from "./pages/Rekapp/Rekapkali.jsx";
+
 // import DataMurid from "./pages/Mengisiabsensi/DataMurid.jsx";
 
 // konstanta view auth
@@ -38,8 +39,8 @@ function App() {
           {/* CONTENT */}
           <div className="dashboard-content1">
             {dashboardPage === "mengisi" && <Dashboard />}
-            {/* {dashboardPage === "filter" && <FilterAbsensi/>} */}
-            {dashboardPage === "rekap" && <RekapAbsensi />}
+            {dashboardPage === "rekap" && <RekapAbsensi setDashboardPage={setDashboardPage} />}
+            {dashboardPage === "rekap1" && <Rekap setDashboardPage={setDashboardPage} />}
         
           </div>
         </div>
