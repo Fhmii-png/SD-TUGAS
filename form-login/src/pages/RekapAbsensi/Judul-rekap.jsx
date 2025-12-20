@@ -1,17 +1,12 @@
 import "./judul-rekap.css";
 
 function Judul() {
-  const today = new Date().toLocaleDateString("id-ID", {
-    weekday: "long",
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-  });
+ 
 
   return (
     <div className="judul2">
-      <h2>Hasil Rekap Absensi</h2>
-      <span>{today}</span>
+      <h2>Sistem Rekap Absensi Mengaji</h2>
+
     </div>
   );
 }
