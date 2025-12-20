@@ -6,13 +6,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-
   height: 100px;
   box-shadow: 0 4px 0 #B8956A;
-
-  margin: -40px;
-  margin-left: 295px; /* 334px sidebar + 20px jarak */
+  box-sizing: border-box;
+  margin-left: 5px; /* 334px sidebar + 20px jarak */
 }
+
 
 .judul h2 {
   margin: 0;

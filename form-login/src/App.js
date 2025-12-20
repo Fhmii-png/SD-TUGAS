@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./pages/Mengisiabsensi/dashboard.css";
+// import "./pages/Mengisiabsensi/dashboard.css";
 
 import LoginForm from "./pages/LoginPage/LoginPage.jsx";
 import RegisterForm from "./pages/RegisterPage/RegisterPage.jsx";
@@ -8,6 +8,7 @@ import LupapasswordForm from "./pages/ForgotPasswordPage/LupaPasswordPage.jsx";
 import Navbar from "./pages/Mengisiabsensi/Navbar.jsx";
 import Dashboard from "./pages/Mengisiabsensi/Dashboard.jsx";
 import RekapAbsensi from "./pages/RekapAbsensi/RekapAbsensi.jsx";
+// import FilterAbsensi from "./pages/Filterabsensi/FilterAbsensi.jsx";
 // import DataMurid from "./pages/Mengisiabsensi/DataMurid.jsx";
 
 // konstanta view auth
@@ -37,6 +38,7 @@ function App() {
           {/* CONTENT */}
           <div className="dashboard-content1">
             {dashboardPage === "mengisi" && <Dashboard />}
+            {/* {dashboardPage === "filter" && <FilterAbsensi/>} */}
             {dashboardPage === "rekap" && <RekapAbsensi />}
         
           </div>

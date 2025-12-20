@@ -15,7 +15,7 @@ function Navbar({ onLogout, setDashboardPage }) {
         Mengisi Absensi
       </button>
 
-      <button onClick={() => setDashboardPage("rekap")}>
+      <button onClick={() => setDashboardPage("Filter")}>
         Rekap Absensi
       </button>
 

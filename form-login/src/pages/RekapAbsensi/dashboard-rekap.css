@@ -1,10 +1,10 @@
-.dashboard-layout {
+.dashboard-layoutr {
   display: flex; /* Sidebar di kiri, Konten di kanan */
   min-height: 100vh;
   width: 100%;
 }
 
-.dashboard-content {
+.dashboard-contentr {
   flex: 1;
   padding: 40px;
   background-color: #C59E74;
