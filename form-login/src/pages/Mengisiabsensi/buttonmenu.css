@@ -18,3 +18,9 @@
   background-color: #937453a7;
   padding-left: 25px;
 }
+
+.menubutton.active {
+  background: #80552a;
+  color: #fff;
+  border-radius: 19px;
+}
