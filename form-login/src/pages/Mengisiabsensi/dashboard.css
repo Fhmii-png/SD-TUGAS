@@ -5,6 +5,7 @@
 }
 
 .dashboard-content1 {
+  margin-left: 320px !important; /* Lebar sidebar + jarak */
   overflow-y: auto;
   flex: 1;
   box-sizing: border-box;

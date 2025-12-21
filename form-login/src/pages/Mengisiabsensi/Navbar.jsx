@@ -7,7 +7,7 @@ import Logoutbutton from "./Logoutbutton";
 
 function Navbar({ onLogout, setDashboardPage }) {
 
-  const [active, setActive] = useState(""); // default aktif
+  const [active, setActive] = useState("mengisi"); // default aktif
     // fungsi untuk ganti halaman + set active
   const handleClick = (page) => {
     setDashboardPage(page); // ganti halaman utama
@@ -37,8 +37,7 @@ function Navbar({ onLogout, setDashboardPage }) {
 
       <button 
         className={active === "murid" ? "menubutton active" : "menubutton"} 
-        onClick={() => handleClick("murid")}
-      >
+        onClick={() => handleClick("murid")}>
         Cek Data Murid
       </button>
 

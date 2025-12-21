@@ -7,6 +7,7 @@ import LupapasswordForm from "./pages/ForgotPasswordPage/LupaPasswordPage.jsx";
 
 import Navbar from "./pages/Mengisiabsensi/Navbar.jsx";
 import Dashboard from "./pages/Mengisiabsensi/Dashboard.jsx";
+import CekdataM from "./pages/CDmurid/CekdataM.jsx";
 import RekapAbsensi from "./pages/RekapAbsensi/RekapAbsensi.jsx";
 import Rekap from "./pages/Rekapp/Rekapkali.jsx";
 
@@ -34,6 +35,7 @@ function App() {
           <Navbar
             onLogout={handleLogout}
             setDashboardPage={setDashboardPage}
+            dashboardPage={dashboardPage}
           />
 
           {/* CONTENT */}
@@ -41,6 +43,8 @@ function App() {
             {dashboardPage === "mengisi" && <Dashboard />}
             {dashboardPage === "rekap" && <RekapAbsensi setDashboardPage={setDashboardPage} />}
             {dashboardPage === "rekap1" && <Rekap setDashboardPage={setDashboardPage} />}
+            {dashboardPage === "murid" && <CekdataM />}
+            {/* {dashboardPage === "filter" && <FilterAbsensi/>} */}
         
           </div>
         </div>
