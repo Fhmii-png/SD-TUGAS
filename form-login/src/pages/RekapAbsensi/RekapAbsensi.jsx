@@ -46,16 +46,16 @@ function RekapAbsensi({ setDashboardPage }) {
           <option value="minggu">minggu ini</option>
           <option value="bulan">bulan ini</option>
         </select>
-
+        
+        <button className="filter-button" onClick={() => setDashboardPage("rekap1")}>
+          tampilkan rekap <span className="icon">📊</span>
+        </button>
+      <Rekap students={filteredStudents} setDashboardPage={setDashboardPage} />
         
       </div>
     </div>
 
 
-        <button className="filter-button" onClick={() => setDashboardPage("rekap1")}>
-          tampilkan rekap <span className="icon">📊</span>
-        </button>
-      <Rekap students={filteredStudents} setDashboardPage={setDashboardPage} />
     </div>
   );
 }
