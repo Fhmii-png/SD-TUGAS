@@ -22,5 +22,13 @@
     "role": "siswa",
     "id": "1767703685211",
     "createdAt": "2026-01-06T12:48:05.211Z"
+  },
+  {
+    "email": "muhammadfahmiashar09@gmail.com",
+    "password": "$2a$10$ldnKHNYf9bb7H62A6XtrE..x5wzWQlRzGu6wnFcl/t6fhJ/0KSzR2",
+    "name": "fahmi",
+    "role": "siswa",
+    "id": "1767707993334",
+    "createdAt": "2026-01-06T13:59:53.334Z"
   }
 ]
