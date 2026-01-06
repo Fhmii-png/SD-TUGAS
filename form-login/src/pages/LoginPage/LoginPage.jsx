@@ -1,16 +1,15 @@
 // src/componnets/login/login2.jsx (LOGIN FORM)
 
 import React, { useState } from 'react';
-import { 
-  User, Lock, LogIn, Eye, EyeOff, AlertCircle 
+import {
+  User, Lock, LogIn, Eye, EyeOff, AlertCircle
 } from 'lucide-react';
 import { authAPI } from '../../services/api';
 
 import logo from '../../componnets/assest/logo.png';
-import './Login.css'; 
+import './Login.css';
 
-// TAMBAHKAN onLoginSuccess di dalam destructured props
-export default function LoginForm({ onSwitchToRegister, onSwitchToForgotPassword, onLoginSuccess }) { 
+export default function LoginForm({ onSwitchToRegister, onSwitchToForgotPassword, onLoginSuccess }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [rememberMe, setRememberMe] = useState(false);
@@ -32,18 +31,18 @@ export default function LoginForm({ onSwitchToRegister, onSwitchToForgotPassword
     try {
       // Panggil API login
       const response = await authAPI.login(email, password);
-      
+
       // Simpan token ke localStorage
       localStorage.setItem('token', response.token);
       localStorage.setItem('user', JSON.stringify(response.user));
-      
+
       console.log('Login Berhasil:', response.user);
-      
+
       // --- BAGIAN PENTING: PANGGIL ONLOGINSUCCESS ---
       if (onLoginSuccess) {
         onLoginSuccess(); // Ini akan memerintahkan App.js menampilkan Navbar/Dashboard
       }
-      
+
       setEmail('');
       setPassword('');
       setIsLoading(false);
@@ -60,15 +59,15 @@ export default function LoginForm({ onSwitchToRegister, onSwitchToForgotPassword
   return (
     <div className="login-container">
       <div className="form-card">
-        
+
         <div className="icon-container">
           <div className="icon-box">
             <img src={logo} alt="Logo" className="icon-box-image" />
           </div>
         </div>
-        
-        <h1 className="main-title">Absensi<br/>Mengaji</h1>
-        
+
+        <h1 className="main-title">Absensi<br />Mengaji</h1>
+
         <p className="arabic-text" dir="rtl">
           بسم الله الرحمن الرحيم
         </p>
@@ -126,11 +125,11 @@ export default function LoginForm({ onSwitchToRegister, onSwitchToForgotPassword
                 className="toggle-password-btn"
                 disabled={isLoading}
               >
-                {showPassword ? ( <EyeOff className="icon" /> ) : ( <Eye className="icon" /> )}
+                {showPassword ? (<EyeOff className="icon" />) : (<Eye className="icon" />)}
               </button>
             </div>
           </div>
-          
+
           <div className="form-options">
             <label className="remember-me-label" htmlFor="remember-me-checkbox">
               <input
@@ -143,11 +142,11 @@ export default function LoginForm({ onSwitchToRegister, onSwitchToForgotPassword
               />
               <span>Ingat saya</span>
             </label>
-            <button 
-                type="button" 
-                className="forgot-password-btn" 
-                disabled={isLoading}
-                onClick={onSwitchToForgotPassword}
+            <button
+              type="button"
+              className="forgot-password-btn"
+              disabled={isLoading}
+              onClick={onSwitchToForgotPassword}
             >
               Lupa Password ?
             </button>
@@ -173,18 +172,18 @@ export default function LoginForm({ onSwitchToRegister, onSwitchToForgotPassword
             <div className="divider-line"></div>
           </div>
 
-          <button 
-            type="button" 
-            className="secondary-btn" 
+          <button
+            type="button"
+            className="secondary-btn"
             disabled={isLoading}
-            onClick={onSwitchToRegister} 
+            onClick={onSwitchToRegister}
           >
             Daftar Akun Baru
           </button>
         </form>
       </div>
     </div>
-    
+
   );
-  
+
 }

@@ -8,7 +8,7 @@ import Logoutbutton from "./Logoutbutton";
 function Navbar({ onLogout, setDashboardPage }) {
 
   const [active, setActive] = useState("mengisi"); // default aktif
-    // fungsi untuk ganti halaman + set active
+  // fungsi untuk ganti halaman + set active
   const handleClick = (page) => {
     setDashboardPage(page); // ganti halaman utama
     setActive(page);        // set button aktif
@@ -21,22 +21,27 @@ function Navbar({ onLogout, setDashboardPage }) {
         Absensi <br /> Mengaji
       </p>
 
-      <button 
-        className={active === "mengisi" ? "menubutton active" : "menubutton"} 
+      {/* Tampilkan Nama User */}
+      <div style={{ marginBottom: '20px', fontSize: '14px', color: '#ffeb3b', fontWeight: 'bold' }}>
+        Halo, {JSON.parse(localStorage.getItem('user') || '{}').nama || 'Tamu'}
+      </div>
+
+      <button
+        className={active === "mengisi" ? "menubutton active" : "menubutton"}
         onClick={() => handleClick("mengisi")}
       >
         Mengisi Absensi
       </button>
 
-      <button 
-        className={active === "rekap" ? "menubutton active" : "menubutton"} 
+      <button
+        className={active === "rekap" ? "menubutton active" : "menubutton"}
         onClick={() => handleClick("rekap")}
       >
         Rekap Absensi
       </button>
 
-      <button 
-        className={active === "murid" ? "menubutton active" : "menubutton"} 
+      <button
+        className={active === "murid" ? "menubutton active" : "menubutton"}
         onClick={() => handleClick("murid")}>
         Cek Data Murid
       </button>

@@ -4,14 +4,14 @@
  * Digunakan untuk connect ke backend
  */
 
-const API_BASE_URL = 'http://localhost:5000/api';
+const API_BASE_URL = 'http://localhost:5001/api';
 
 /**
  * Helper function untuk melakukan fetch dengan error handling
  */
 const fetchAPI = async (endpoint, options = {}) => {
   const token = localStorage.getItem('token');
-  
+
   const headers = {
     'Content-Type': 'application/json',
     ...options.headers
@@ -32,10 +32,10 @@ const fetchAPI = async (endpoint, options = {}) => {
 
     // Jika response tidak ok, throw error
     if (!response.ok) {
-      throw new Error(data.message || 'API Error');
+      throw new Error(data.error || data.message || 'API Error');
     }
 
-    return data;
+    return data; // Langsung return data (atau data.data tergantung struktur backend)
   } catch (error) {
     console.error('API Error:', error.message);
     throw error;
@@ -48,20 +48,22 @@ const fetchAPI = async (endpoint, options = {}) => {
 export const authAPI = {
   /**
    * Register user baru
+   * Menerima items: email, password, name
+   * Backend perlu: namaLengkap, email, password
    */
-  register: (email, password, name) =>
-    fetchAPI('/auth/register', {
+  register: (email, password, namaLengkap) =>
+    fetchAPI('/register', {
       method: 'POST',
-      body: JSON.stringify({ email, password, name })
+      body: JSON.stringify({ email, password, namaLengkap, role: 'murid', username: email.split('@')[0] })
     }),
 
   /**
    * Login dan dapatkan token
    */
-  login: (email, password) =>
-    fetchAPI('/auth/login', {
+  login: (username, password) =>
+    fetchAPI('/login', {
       method: 'POST',
-      body: JSON.stringify({ email, password })
+      body: JSON.stringify({ username, password })
     }),
 
   /**

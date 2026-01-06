@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./dashboard-rekap.css";
 import Judul from "./Judul-rekap";
 import Rekap from "./Rekap";
@@ -7,17 +7,28 @@ import SearchBar from "./Searchbar";
 
 function RekapAbsensi({ setDashboardPage }) {
 
-  // DATA CONTOH (sesuaikan dengan data aslimu)
-  const studentsData = [
-    { id: 1, name: "Ahmad Fauzi", kelas: "Iqra 3" },
-    { id: 2, name: "Fatimah Azzahra", kelas: "Iqra 4" },
-    { id: 3, name: "Muhammad Rizki", kelas: "Iqra 2" },
-  ];
-
+  // State untuk data
+  const [studentsData, setStudentsData] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [periode, setPeriode] = useState("minggu");
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("http://localhost:5001/api/mahasiswa");
+        const result = await response.json();
+        if (result.status === "success") {
+          setStudentsData(result.data);
+        }
+      } catch (error) {
+        console.error("Gagal ambil data rekap:", error);
+      }
+    };
+    fetchData();
+  }, []);
+
   const filteredStudents = studentsData.filter(student =>
-    student.name.toLowerCase().includes(searchQuery.toLowerCase())
+    (student.nama || "").toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   return (
@@ -30,30 +41,30 @@ function RekapAbsensi({ setDashboardPage }) {
         onChange={setSearchQuery}
         placeholder="Cari nama murid..."
       />
-      
-         <div className="filter-container">
-      <h2 className="filter-title">Filter Rekap Absensi Siswa</h2>
 
-      <label className="filter-label">Pilih Periode Waktu</label>
+      <div className="filter-container">
+        <h2 className="filter-title">Filter Rekap Absensi Siswa</h2>
 
-      <div className="filter-controls">
-        <select
-          className="filter-select"
-          value={periode}
-          onChange={(e) => setPeriode(e.target.value)}
-        >
-          <option value="hari">hari ini</option>
-          <option value="minggu">minggu ini</option>
-          <option value="bulan">bulan ini</option>
-        </select>
-        
-        <button className="filter-button" onClick={() => setDashboardPage("rekap1")}>
-          tampilkan rekap <span className="icon">📊</span>
-        </button>
-      <Rekap students={filteredStudents} setDashboardPage={setDashboardPage} />
-        
+        <label className="filter-label">Pilih Periode Waktu</label>
+
+        <div className="filter-controls">
+          <select
+            className="filter-select"
+            value={periode}
+            onChange={(e) => setPeriode(e.target.value)}
+          >
+            <option value="hari">hari ini</option>
+            <option value="minggu">minggu ini</option>
+            <option value="bulan">bulan ini</option>
+          </select>
+
+          <button className="filter-button" onClick={() => setDashboardPage("rekap1")}>
+            tampilkan rekap <span className="icon">📊</span>
+          </button>
+          <Rekap students={filteredStudents} setDashboardPage={setDashboardPage} />
+
+        </div>
       </div>
-    </div>
 
 
     </div>
