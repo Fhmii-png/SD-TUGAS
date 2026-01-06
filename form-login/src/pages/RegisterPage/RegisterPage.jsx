@@ -1,16 +1,16 @@
 // src/componnets/login/login.jsx (REGISTRASI FORM)
 
 import React, { useState } from 'react';
-import { 
-  User, Lock, Mail, Phone, Save, AlertCircle 
+import {
+  User, Lock, Mail, Phone, Save, AlertCircle
 } from 'lucide-react';
 import { authAPI } from '../../services/api';
 
 import logo from '../../componnets/assest/logo.png';
-import './Register.css'; 
+import './Register.css';
 
 // Menerima prop onSwitchToLogin (Aksi POP) dari App.js
-export default function RegisterForm({ onSwitchToLogin }) { 
+export default function RegisterForm({ onSwitchToLogin }) {
   const [formData, setFormData] = useState({
     namaLengkap: '', email: '', nohandphone: '', role: '',
     password: '', konfirmasiPassword: '',
@@ -29,59 +29,59 @@ export default function RegisterForm({ onSwitchToLogin }) {
     e.preventDefault();
     setError('');
     setSuccess('');
-    
+
     if (formData.password !== formData.konfirmasiPassword) {
       setError('Password dan Konfirmasi Password tidak cocok.');
       return;
     }
     if (formData.password.length < 6) {
-        setError('Password minimal harus 6 karakter.');
-        return;
+      setError('Password minimal harus 6 karakter.');
+      return;
     }
-    
+
     // Cek apakah semua field required sudah terisi
     const requiredFields = ['namaLengkap', 'email', 'nohandphone', 'role', 'password', 'konfirmasiPassword'];
     const isFormValid = requiredFields.every(field => formData[field].trim());
     if (!isFormValid) {
-        setError('Mohon isi semua field yang bertanda *');
-        return;
+      setError('Mohon isi semua field yang bertanda *');
+      return;
     }
 
     setIsLoading(true);
     try {
-        // Panggil API register
-        await authAPI.register(formData.email, formData.password, formData.namaLengkap);
-        
-        setSuccess('Pendaftaran Berhasil! Silahkan login menggunakan akun Anda.');
-        
-        // Reset form
-        setFormData({
-          namaLengkap: '', email: '', nohandphone: '', role: '',
-          password: '', konfirmasiPassword: '',
-        });
-        
-        // Setelah berhasil mendaftar, kembali ke halaman Login (POP) setelah 1.5 detik
-        setTimeout(() => {
-            onSwitchToLogin();
-        }, 1500);
+      // Panggil API register
+      await authAPI.register(formData.email, formData.password, formData.namaLengkap);
+
+      setSuccess('Pendaftaran Berhasil! Silahkan login menggunakan akun Anda.');
+
+      // Reset form
+      setFormData({
+        namaLengkap: '', email: '', nohandphone: '', role: '',
+        password: '', konfirmasiPassword: '',
+      });
+
+      // Setelah berhasil mendaftar, kembali ke halaman Login (POP) setelah 1.5 detik
+      setTimeout(() => {
+        onSwitchToLogin();
+      }, 1500);
     } catch (err) {
-        setError(err.message || 'Pendaftaran gagal. Coba lagi.');
+      setError(err.message || 'Pendaftaran gagal. Coba lagi.');
     } finally {
-        setIsLoading(false);
+      setIsLoading(false);
     }
   };
 
   return (
     <div className="login-container">
       <div className="form-card">
-        
+
         <div className="icon-container">
           <div className="icon-box">
             <img src={logo} alt="Logo" className="icon-box-image" />
           </div>
         </div>
-        
-        <h1 className="main-title">Absensi<br/>Mengaji</h1>
+
+        <h1 className="main-title">Absensi<br />Mengaji</h1>
         <h2 className="subtitle">Daftar Akun</h2>
 
         <div className="decorative-line short-line">
@@ -104,7 +104,7 @@ export default function RegisterForm({ onSwitchToLogin }) {
         )}
 
         <form onSubmit={handleRegister} className="space-y-4">
-          
+
           {/* Nama Lengkap */}
           <div>
             <label className="input-label required" htmlFor="namaLengkap">Nama Lengkap</label>
@@ -131,7 +131,7 @@ export default function RegisterForm({ onSwitchToLogin }) {
               <input id="nohandphone" type="tel" placeholder="08123456789" value={formData.nohandphone} onChange={handleChange} className="input-field" disabled={isLoading} required />
             </div>
           </div>
-          
+
           {/* Daftar sebagai* (Role) */}
           <div>
             <label className="input-label required" htmlFor="role">Daftar sebagai</label>
@@ -153,7 +153,7 @@ export default function RegisterForm({ onSwitchToLogin }) {
               <input id="password" type="password" placeholder="Minimal 6 Karakter" value={formData.password} onChange={handleChange} className="input-field" disabled={isLoading} required minLength="6" />
             </div>
           </div>
-          
+
           {/* Konfirmasi ulang password */}
           <div>
             <label className="input-label required" htmlFor="konfirmasiPassword">Konfirmasi ulang password</label>
@@ -178,17 +178,17 @@ export default function RegisterForm({ onSwitchToLogin }) {
             )}
           </button>
         </form>
-        
+
         {/* Tombol KEMBALI KE LOGIN: Memicu POP dari Stack Register */}
         <div className="mt-4 pt-4 border-t border-solid border-gray-300">
-            <button 
-                type="button" 
-                className="sudah-punya-akun btn-bottom-akun text-center " 
-                disabled={isLoading}
-                onClick={onSwitchToLogin} // <-- POP VIEW_LOGIN
-            >
-                Sudah punya akun? Masuk di sini.
-            </button>
+          <button
+            type="button"
+            className="sudah-punya-akun btn-bottom-akun text-center "
+            disabled={isLoading}
+            onClick={onSwitchToLogin} // <-- POP VIEW_LOGIN
+          >
+            Sudah punya akun? Masuk di sini.
+          </button>
         </div>
 
       </div>
