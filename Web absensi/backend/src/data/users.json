@@ -1,0 +1,26 @@
+[
+  {
+    "id": "1",
+    "email": "admin@school.com",
+    "password": "$2a$10$YourHashedPasswordHere",
+    "name": "Admin School",
+    "role": "admin",
+    "createdAt": "2026-01-06T11:40:58.921Z"
+  },
+  {
+    "email": "superfhmi09@gmail.com",
+    "password": "$2a$10$tt5/qw2cE6i3TBFgBzH9UegMBPdc1DUsS2gS1YOxJJCTYLYeUaLna",
+    "name": "superrrFhmii",
+    "role": "siswa",
+    "id": "1767701317050",
+    "createdAt": "2026-01-06T12:08:37.050Z"
+  },
+  {
+    "email": "agysbhll@gmail.com",
+    "password": "$2a$10$IX2KZM6zfvpOEeDH/MUnOOUuJWrPp68s/zwY6zsab/GhtpTKiyzO2",
+    "name": "Agysvsbahlil",
+    "role": "siswa",
+    "id": "1767703685211",
+    "createdAt": "2026-01-06T12:48:05.211Z"
+  }
+]

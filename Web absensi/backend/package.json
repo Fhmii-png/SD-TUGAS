@@ -1,0 +1,27 @@
+{
+  "name": "web-absensi-backend",
+  "version": "1.0.0",
+  "description": "Backend untuk Web Absensi dengan Stack dan Linked List Data Structures",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js"
+  },
+  "keywords": [
+    "absensi",
+    "stack",
+    "linked-list"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
